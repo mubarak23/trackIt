@@ -36,22 +36,84 @@
 <div class="col-12 col-lg-9" >
 <div class="row">
     <div class="col-12 col-lg-12 col-md-12 col-sm-12 center">
-        <h2>Add New Project</h2>
+        <p class="card-text text-justify"> <span class="h6">New Project</p>
     </div>
 </div>
 <hr>
 <div class="row">
-    <div class="col-12 col-lg-4 col-md-4 col-sm-12">
-        <div class="form">
-            <form class="form" method="POST" action="#" accept="context-type">
+    <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="form-group">
+            <form  method="POST" action="#" accept="context-type">
                 <div>
-                    <label>Project Title</label>
-                    <input type="text" name="title" placeholder="Project Title" />
+                    <input type="text" name="title" placeholder="Project Title"  class="form-control"/>
+                </div>
+                <br>
+                <div class="form-group">
+
+                    <textarea cols="10" rows="5" name="description" placeholder="Project Description" class="form-control"></textarea>
                 </div>
                 <div>
-                    <label>Project Description</label>
-                    <textarea cols="30" rows="10" name="description"></textarea>
+                    <label>Category</label>
+                    <select class="form-control" id="exampleFormControlSelect2">
+                    <option>Community</option>
+                    <option>Budget</option>
+                    <option>Health</option>
+                    <option>Education</option>
+                    <option>Fetch from Categories table </option>
+                    </select>
                 </div>
+                <div>
+                   <label>Tags</label>
+                </div>
+                <div class="form-check">
+                <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="local"
+                    id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                    Local
+                </label>
+                </div>
+                <!-- Checked checkbox -->
+                <div class="form-check">
+                <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="community"
+                    id="flexCheckChecked"
+                    checked
+                />
+                <label class="form-check-label" for="flexCheckChecked">
+                    Community
+                </label>
+                </div>
+                <div>
+                    <label>Location</label>
+                    <select class="form-control" name="location" id="exampleFormControlSelect2">
+                    <option>Kano</option>
+                    <option>Benue</option>
+                    <option>Edo</option>
+                    <option>Kaduna</option>
+                    <option>Lagos</option>
+                    <option>Jigawa</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Address</label>
+                    <input type="text" name="adddress" placeholder="Address"  class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Images</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+                <br>
+                <div class="form-group row">
+                <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Add Project</button>
+                </div>
+            </div>
             </form>
         </div>
     </div>
