@@ -21,3 +21,13 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('apps.index');
 });
+
+
+Route::get('/profile', function () {
+    return view('apps.profile');
+});
+
+
+Route::get('/project', function () {
+    return view('apps.project');
+});

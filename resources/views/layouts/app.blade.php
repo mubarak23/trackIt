@@ -45,7 +45,7 @@
 
         @yield('content')
     </body>
-    <div class=" footer">
+    <div class="footer">
       <h2 class="justify-center">Footer</h2>
     </div>
 </html>
