@@ -35,3 +35,7 @@ Route::get('/project', function () {
 Route::get('/add', function () {
     return view('apps.addproject');
 });
+
+Route::get('/login', function () {
+    return view('apps.login');
+});
