@@ -38,7 +38,15 @@ class RegisterController extends Controller
             $upload_profile = $this->cloundary_image_upload($request->hasFile('picture'));
         }
         $data['user_pic'] = $upload_profile['url'];
-
+        $data['password'] = Hash::make($data['password']);
+        //fetch all roles and loop through and pick only role with name as user
+        $data['user_role_id'] = 2;
+        $new_user_account = $this->store_action($data);
+        if(!$new_user_account){
+            return back()->with('status', 'Unabled to create a New Account at this time');
+        }
+        auth()->attempt($request->only('email', 'password'));
+        return redirect()->route('dashboard');
     }
 
 
@@ -49,8 +57,9 @@ class RegisterController extends Controller
   }
 
 
-  public function storre_action($data){
-
+  public function store_action($data){
+        $create_user_account = User::create($data);
+        return $create_user_account;
   }
 
 

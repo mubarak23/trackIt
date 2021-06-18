@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\controllers\auth\RegisterController;
+use App\Http\controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,12 @@ Route::get('/home', function () {
     return view('apps.index');
 });
 
+// register
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/auth/register', [RegisterController::class, 'register']);
+
+//default user dashboard
+Route::get('/user/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/profile', function () {
     return view('apps.profile');
