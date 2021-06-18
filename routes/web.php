@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\controllers\auth\RegisterController;
 use App\Http\controllers\auth\LoginController;
+use App\Http\controllers\auth\LogoutController;
 use App\Http\controllers\DashboardController;
 //LoginController
 
@@ -32,8 +33,11 @@ Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/auth/register', [RegisterController::class, 'register'])->name('auth_register');
 
 // Login
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/auth/login', [LoginController::class, 'login']);
+Route::get('/login', [LoginController::class, 'index'])->name('show');
+Route::post('/auth/login', [LoginController::class, 'login'])->name('login');
+
+//logout
+Route::post('/auth/logout', [LogoutController::class, 'store'])->name('logout');
 
 //default user dashboard
 Route::get('/user/dashboard', [DashboardController::class, 'index'])->name('dashboard');

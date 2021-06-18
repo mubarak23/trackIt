@@ -33,7 +33,12 @@
                 <li class="nav-item"><a href="profile.html" class="nav-link">Project</a></li>
                 <li class="nav-item"><a href="#modalview" class="nav-link" data-toggle="modal">Communnity</a></li>
                 <li class="nav-item"><a href="notification.html" class="nav-link">Report</a></li>
-                <li class="nav-item"><a href="#" class="nav-link ">logout</a></li>
+                <li class="nav-item"><a href="#" class="nav-link ">
+                  <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button p-3>Logout</button>
+                    </form>
+                    </a></li>
             </ul>
 
             <form action="" class="form-inline ml-auto d-none d-md-block">

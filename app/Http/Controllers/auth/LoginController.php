@@ -9,19 +9,18 @@ class LoginController extends Controller
 {
     //
 
-    public function __construct(){
-        $this->middleware('guest');
-    }
+
 
     public function index(){
         return view('apps.login');
     }
 
-    public function  login(Request $request){
+    public function login(Request $request){
           $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required|',
         ]);
+        //return $request->all();
      if(!auth()->attempt($request->only('email', 'password'), $request->remember)){
          return back()->with('status', 'Invalid Login Details');
      }
