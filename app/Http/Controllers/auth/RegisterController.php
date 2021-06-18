@@ -34,10 +34,10 @@ class RegisterController extends Controller
             'picture' => 'required',
         ]);
         $data = $request->all();
-        if($request->hasFile('picture')){
-            $upload_profile = $this->cloundary_image_upload($request->hasFile('picture'));
-        }
-        $data['user_pic'] = $upload_profile['url'];
+
+        $response = cloudinary()->upload($request->file('picture')->getRealPath())->getSecurePath();
+
+        $data['user_pic'] = $response;
         $data['password'] = Hash::make($data['password']);
         //fetch all roles and loop through and pick only role with name as user
         $data['user_role_id'] = 2;
@@ -51,7 +51,7 @@ class RegisterController extends Controller
 
 
   public function cloundary_image_upload($file){
-        Cloudder::upload($request->file('image'));
+        Cloudder::upload($file);
         $cloundary_upload = Cloudder::getResult();
         return $cloundary_upload;
   }

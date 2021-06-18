@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\controllers\auth\RegisterController;
+use App\Http\controllers\auth\LoginController;
 use App\Http\controllers\DashboardController;
+//LoginController
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +29,11 @@ Route::get('/home', function () {
 
 // register
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
-Route::post('/auth/register', [RegisterController::class, 'register']);
+Route::post('/auth/register', [RegisterController::class, 'register'])->name('auth_register');
+
+// Login
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/auth/login', [LoginController::class, 'login']);
 
 //default user dashboard
 Route::get('/user/dashboard', [DashboardController::class, 'index'])->name('dashboard');

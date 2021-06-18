@@ -2,9 +2,10 @@
 @section('content')
 <div class="container">
         <div class="row">
-        <div class="col-md-6 offset-md-3">
+        <div class="col-md-8 offset-md-3">
         <div class="card shadow-sm mb-4 p-3">
-            <form class="form-signin">
+            <form class="form-signin" method="POST" enctype='multipart/form-data' action="{{ route('auth_register') }}">
+            @csrf
             <div class="form-label-group pb-3">
             <input type="text" id="first_name" name="first_name"
             class="form-control @error('first_name') border-red-500 @enderror" value="{{ old('first_name')}}"
