@@ -33,14 +33,14 @@ Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/auth/register', [RegisterController::class, 'register'])->name('auth_register');
 
 // Login
-Route::get('/login', [LoginController::class, 'index'])->name('show');
-Route::post('/auth/login', [LoginController::class, 'login'])->name('login');
+Route::get('/auth/login', [LoginController::class, 'index'])->name('auth');
+Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 //logout
 Route::post('/auth/logout', [LogoutController::class, 'store'])->name('logout');
 
 //default user dashboard
-Route::get('/user/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/user/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');;
 
 Route::get('/profile', function () {
     return view('apps.profile');
