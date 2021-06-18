@@ -25,7 +25,8 @@ class User extends Authenticatable
         'state',
         'lga',
         'phone_number',
-        'user_role_id'
+        'user_role_id',
+        'user_pic'
     ];
 
     /**

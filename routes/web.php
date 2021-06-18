@@ -39,3 +39,7 @@ Route::get('/add', function () {
 Route::get('/login', function () {
     return view('apps.login');
 });
+
+Route::get('/register', function () {
+    return view('apps.register');
+});

@@ -143,7 +143,6 @@ Start a conversation around something important in your community.</p>
 
 
         <div class="card shadow-sm mb-4">
-
             <div class="card-body">
 
                     <h6 class="card-title ">Likes <a href="#" class="ml-1"><small>.View All</small> </a> </h6>
@@ -172,9 +171,6 @@ Start a conversation around something important in your community.</p>
 
                 <p class="lead" style="font-size:18px;">Dave really likes these nerds, no one knows why though.</p>
             </div>
-
-
-
         </div>
 
         <div class="card shadow-sm">
