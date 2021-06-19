@@ -5,7 +5,8 @@ use App\Http\controllers\auth\RegisterController;
 use App\Http\controllers\auth\LoginController;
 use App\Http\controllers\auth\LogoutController;
 use App\Http\controllers\DashboardController;
-//LoginController
+use App\Http\controllers\ProjectController;
+//ProjectController
 
 
 /*
@@ -40,7 +41,10 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/auth/logout', [LogoutController::class, 'store'])->name('logout');
 
 //default user dashboard
-Route::get('/user/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');;
+Route::get('/user/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+
+Route::get('/project/add', [ProjectController::class, 'index'])->name('project')->middleware('auth');
+Route::post('/project', [ProjectController::class, 'store_project'])->name('addProject')->middleware('auth');
 
 Route::get('/profile', function () {
     return view('apps.profile');

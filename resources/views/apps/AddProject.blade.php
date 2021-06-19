@@ -42,7 +42,8 @@
 <div class="row">
     <div class="col-12 col-lg-12 col-md-12 col-sm-12">
         <div class="form-group">
-            <form  method="POST" action="#" accept="context-type">
+            <form  method="POST" enctype='multipart/form-data' action="{{ route('addProject') }}">
+                @csrf
                 <div>
                     <input type="text" name="title" placeholder="Project Title"
                       class="form-control @error('title') border-red-500 @enderror"
@@ -69,46 +70,17 @@
                     <label>Category</label>
                     <select class="form-control @error('category_id')
                       border-red-500 @enderror" value="{{ old('category_id')}}" name="category_id" id="exampleFormControlSelect2">
-                    <option>Community</option>
-                    <option>Budget</option>
-                    <option>Health</option>
-                    <option>Education</option>
-                    <option>Fetch from Categories table </option>
+                    <option value="1">Community</option>
+                    <option value="2">Budget</option>
+                    <option value="3">Health</option>
+                    <option value="4">Education</option>
+                    <option value="5">Fetch from Categories table </option>
                     </select>
                     @error('category_id')
                     <div class="text-red-500 mt-2 text-sm ">
                      {{ $message }}
                     </div>
                     @enderror
-                </div>
-                <div>
-                   <label>Tags</label>
-                </div>
-                <div class="form-check">
-                <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value="local"
-                    name="tag"
-                    id="flexCheckDefault"
-                />
-                <label class="form-check-label" for="flexCheckDefault">
-                    Local
-                </label>
-                </div>
-                <!-- Checked checkbox -->
-                <div class="form-check">
-                <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value="community"
-                    namee="tag"
-                    id="flexCheckChecked"
-                    checked
-                />
-                <label class="form-check-label" for="flexCheckChecked">
-                    Community
-                </label>
                 </div>
                 <div>
                     <label>Location</label>
@@ -130,10 +102,10 @@
                 </div>
                 <div>
                     <label>Address</label>
-                    <input type="text" name="adddress" placeholder="Address"
-                     class="form-control @error('adddress')
-                      border-red-500 @enderror" value="{{ old('adddress')}}" />
-                      @error('adddress')
+                    <input type="text" name="address" placeholder="Address"
+                     class="form-control @error('address')
+                      border-red-500 @enderror" value="{{ old('address')}}" />
+                      @error('address')
                     <div class="text-red-500 mt-2 text-sm ">
                      {{ $message }}
                     </div>
