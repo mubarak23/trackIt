@@ -25,7 +25,8 @@ class ProjectController extends Controller
             'category_id' => 'required',
             'location' => 'required',
             'address' => 'required',
-            'image' => 'required'
+            'image' => 'required',
+            "amount" => "required"
         ]);
         $data = $request->all();
 
@@ -37,7 +38,7 @@ class ProjectController extends Controller
 
         // 2. save image in clounddary and get url
         $response = cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
-        dd($response);
+        //dd($response);
         // 3. collect project id and url
         $data["project_id"] = $project->id;
         $data["image_url"] = $response;

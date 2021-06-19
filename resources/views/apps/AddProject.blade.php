@@ -67,6 +67,18 @@
                     @enderror
                 </div>
                 <div>
+                    <label>Project Estimated Amount</label>
+                    <input type="number" name="amount"
+                      class="form-control @error('amount') border-red-500 @enderror"
+                       value="{{ old('amount')}}"/>
+                    @error('amount')
+                    <div class="text-red-500 mt-2 text-sm ">
+                     {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+                <br>
+                <div>
                     <label>Category</label>
                     <select class="form-control @error('category_id')
                       border-red-500 @enderror" value="{{ old('category_id')}}" name="category_id" id="exampleFormControlSelect2">
