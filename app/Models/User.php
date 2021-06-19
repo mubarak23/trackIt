@@ -46,6 +46,10 @@ class User extends Authenticatable
             return $this->hasOne('App\Model\User_Role', 'user_role_id');
         }
 
+    public function projects(){
+        return $this->hasMany('App\Model\Project', 'user_id');
+    }
+
     /**
      * The attributes that should be cast to native types.
      *
