@@ -11,10 +11,10 @@
             class="form-control @error('first_name') border-red-500 @enderror" value="{{ old('first_name')}}"
              placeholder="First Name" required autofocus>
              @error('first_name')
-                    <div class="text-red-500 mt-2 text-sm ">
-                        {{ $message }}
-                    </div>
-                    @enderror
+               <div class="text-red-500 mt-2 text-sm ">
+                 {{ $message }}
+               </div>
+            @enderror
          </div>
          <div class="form-label-group pb-3">
             <input type="text" id="last_name" name="last_name" class="form-control @error('last_name') border-red-500 @enderror" value="{{ old('last_name')}}"

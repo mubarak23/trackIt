@@ -44,22 +44,42 @@
         <div class="form-group">
             <form  method="POST" action="#" accept="context-type">
                 <div>
-                    <input type="text" name="title" placeholder="Project Title"  class="form-control"/>
+                    <input type="text" name="title" placeholder="Project Title"
+                      class="form-control @error('title') border-red-500 @enderror"
+                       value="{{ old('title')}}"/>
+                    @error('title')
+                    <div class="text-red-500 mt-2 text-sm ">
+                     {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <br>
                 <div class="form-group">
 
-                    <textarea cols="10" rows="5" name="description" placeholder="Project Description" class="form-control"></textarea>
+                    <textarea cols="10" rows="5" name="description" placeholder="Project Description"
+                     class="form-control @error('description')
+                      border-red-500 @enderror" value="{{ old('description')}}"></textarea>
+                      @error('description')
+                    <div class="text-red-500 mt-2 text-sm ">
+                     {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div>
                     <label>Category</label>
-                    <select class="form-control" id="exampleFormControlSelect2">
+                    <select class="form-control @error('category_id')
+                      border-red-500 @enderror" value="{{ old('category_id')}}" name="category_id" id="exampleFormControlSelect2">
                     <option>Community</option>
                     <option>Budget</option>
                     <option>Health</option>
                     <option>Education</option>
                     <option>Fetch from Categories table </option>
                     </select>
+                    @error('category_id')
+                    <div class="text-red-500 mt-2 text-sm ">
+                     {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div>
                    <label>Tags</label>
@@ -69,6 +89,7 @@
                     class="form-check-input"
                     type="checkbox"
                     value="local"
+                    name="tag"
                     id="flexCheckDefault"
                 />
                 <label class="form-check-label" for="flexCheckDefault">
@@ -81,6 +102,7 @@
                     class="form-check-input"
                     type="checkbox"
                     value="community"
+                    namee="tag"
                     id="flexCheckChecked"
                     checked
                 />
@@ -90,22 +112,36 @@
                 </div>
                 <div>
                     <label>Location</label>
-                    <select class="form-control" name="location" id="exampleFormControlSelect2">
-                    <option>Kano</option>
-                    <option>Benue</option>
-                    <option>Edo</option>
-                    <option>Kaduna</option>
-                    <option>Lagos</option>
-                    <option>Jigawa</option>
+                    <select class="form-control @error('location')
+                      border-red-500 @enderror" value="{{ old('location')}}"
+                    name="location" id="exampleFormControlSelect2" name="location">
+                    <option value="kano">Kano</option>
+                    <option value="benue">Benue</option>
+                    <option value="edo">Edo</option>
+                    <option value="kaduna">Kaduna</option>
+                    <option value="lagos">Lagos</option>
+                    <option value="jigawa">Jigawa</option>
                     </select>
+                    @error('location')
+                    <div class="text-red-500 mt-2 text-sm ">
+                     {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div>
                     <label>Address</label>
-                    <input type="text" name="adddress" placeholder="Address"  class="form-control"/>
+                    <input type="text" name="adddress" placeholder="Address"
+                     class="form-control @error('adddress')
+                      border-red-500 @enderror" value="{{ old('adddress')}}" />
+                      @error('adddress')
+                    <div class="text-red-500 mt-2 text-sm ">
+                     {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlFile1">Images</label>
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
                 </div>
                 <br>
                 <div class="form-group row">
