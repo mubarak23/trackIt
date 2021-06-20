@@ -9,7 +9,7 @@ class LoginController extends Controller
 {
     //
 
-
+    // all thing equal
 
     public function index(){
         return view('apps.login');

@@ -62,6 +62,10 @@ class ProjectController extends Controller
         return $store;
     }
 
+    public function projects(){
+        $projects = Project::all();
+        return $projects;
+    }
 
 
 }
