@@ -36,5 +36,10 @@ class Project extends Model
     }
 
 
+    // a project has many image
+    public function images(){
+        return $this->hasMany(Image::class, 'project_id');
+        //return $this->hasMany('App\Model\Image', 'project_id');
+    }
 
 }

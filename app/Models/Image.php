@@ -12,4 +12,12 @@ class Image extends Model
         'project_id',
         'image_url',
     ];
+
+    // a image  belong to a project
+    public function project(){
+        return $this->belongsTo('App\Model\Project', 'project_id');
+    }
+
+
+
 }

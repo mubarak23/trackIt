@@ -6,10 +6,10 @@
             <div class="left-column">
                     <div class="card card-left1 mb-4" >
 
-                        <img src="{{URL::asset('img/photo-1455448972184-de647495d428.jpg')}}" alt="" class="card-img-top img-fluid">
+                        <img src="{{url('/img/photo-1455448972184-de647495d428.jpg')}}" alt="" class="card-img-top img-fluid">
 
                         <div class="card-body text-center ">
-                            <img src="img/avatar-dhg.png" alt="img" width="120px" height="120px" class="rounded-circle mt-n5">
+                            <img src="{{url('/img/avatar-dhg.png')}}" alt="img" width="120px" height="120px" class="rounded-circle mt-n5">
                             <h5 class="card-title">John Doe</h5>
                             <p class="card-text text-justify mb-2">A better sociaty start with,
                                 been the change i want to see in the world</p>
@@ -47,37 +47,40 @@ Start a conversation around something important in your community.</p>
           <div class="card-header bg-transparent">
                          <form class="form-inline">
                             <div class="input-group w-100">
-                                <img src="img/avatar-dhg.png" alt="img" width="55px" height="55px" class="rounded-circle mr-3">
+                                <img src="{{url('/img/avatar-dhg.png')}}" alt="img" width="55px" height="55px" class="rounded-circle mr-3">
                                 <input type="text" name="message" id="message" placeholder="Find A Project in Your Community and Report" class="form-control form-control-md">
                          </div>
                     </form>
             </div>
+      @if($user_projects->count())
+        @foreach ($user_projects as  $project)
    <div class="card-body">
     <div class="media">
-        <img src="img/avatar-dhg.png" alt="img" width="55px" height="55px" class="rounded-circle mr-3">
+        <img src="{{url($project->images[0]['image_url'])}}" alt="img" width="70px" height="70px" class="rounded-circle mr-3">
         <div class="media-body">
-            <h5>Dave Gamache</h5>
-            <p class="card-text text-justify">Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            <h5>{{$project->posted_by}}</h5>
+            <p class="card-text text-justify"> <span class="h6">{{$project->title}}</p>
+            <p class="card-text text-justify">{{$project->description}}</p>
             <div class="row no-gutters mb-3">
                 <div class="col-6 p-1 text-center">
-                        <img src="img/adventure-alps-clouds-2259810.jpg" alt="" class="img-fluid mb-2">
-                        <img src="img/aerial-view-architectural-design-buildings-2228123.jpg" alt="" class="img-fluid">
+                        <img src="{{url('/img/adventure-alps-clouds-2259810.jpg')}}" alt="" class="img-fluid mb-2">
+                        <img src="{{url('/img/aerial-view-architectural-design-buildings-2228123.jpg')}}" alt="" class="img-fluid">
                 </div>
                 <div class="col-6 p-1 text-center">
 
-                        <img src="img/celebration-colored-smoke-dark-2297472.jpg" alt="" class="img-fluid mb-2">
-                        <img src="img/bodybuilding-exercise-fitness-2294361.jpg" alt=""class="img-fluid">
+                        <img src="{{url('/img/celebration-colored-smoke-dark-2297472.jpg')}}" alt="" class="img-fluid mb-2">
+                        <img src="{{url('/img/bodybuilding-exercise-fitness-2294361.jpg')}}" alt=""class="img-fluid">
                 </div>
             </div>
 
             <div class="media mb-3">
-                    <img src="img/avatar-dhg.png" alt="img" width="45px" height="45px" class="rounded-circle mr-2">
+                    <img src="{{url('/img/avatar-dhg.png')}}" alt="img" width="45px" height="45px" class="rounded-circle mr-2">
                     <div class="media-body">
                             <p class="card-text text-justify">Jacon Thornton: Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed posuere consectetur est at lobortis.</p>
                     </div>
             </div>
             <div class="media">
-                    <img src="img/avatar-mdo.png" alt="img" width="45px" height="45px" class="rounded-circle mr-2">
+                    <img src="{{url('/img/avatar-mdo.png')}}" alt="img" width="45px" height="45px" class="rounded-circle mr-2">
                     <div class="media-body">
                             <p class="card-text text-justify">Mark Otto: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
 
@@ -87,7 +90,11 @@ Start a conversation around something important in your community.</p>
         <small>5min</small>
     </div>
    </div>
-
+   @endforeach
+        {{ $user_projects->links() }}
+     @else
+      <p>There are no Projects</p>
+     @endif
  <hr>
 
 <div class="card-body">
@@ -132,7 +139,7 @@ Start a conversation around something important in your community.</p>
         <div class="card shadow-sm mb-4" >
             <div class="card-body">
                 <h6 class="card-title">Sponsored</h6>
-                <img src="img/right1.jpg" alt="card-img" class="card-img mb-3">
+                <img src="{{url('/img/right1.jpg')}}" alt="card-img" class="card-img mb-3">
                 <p class="card-text text-justify"> <span class="h6">It might be time to visit Iceland.</span> Iceland is so chill, and everything looks cool here. Also, we heard the people are pretty nice.  What are you waiting for?</p>
                 <a href="#" class="btn btn-outline-info card-link btn-sm">Buy a ticket</a>
 
@@ -148,8 +155,8 @@ Start a conversation around something important in your community.</p>
                     <h6 class="card-title ">Likes <a href="#" class="ml-1"><small>.View All</small> </a> </h6>
                     <div class="row no-gutters d-none d-lg-flex">
                         <div class="col-6 p-1">
-                                <img src="img/avatar-dhg.png" alt="img" width="80px" height="80px" class="rounded-circle mb-4">
-                                <img src="img/avatar-fat.jpg" alt="img" width="80px" height="80px" class="rounded-circle">
+                                <img src="{{url('/img/avatar-dhg.png')}}" alt="img" width="80px" height="80px" class="rounded-circle mb-4">
+                                <img src="{{url('/img/avatar-fat.jpg')}}" alt="img" width="80px" height="80px" class="rounded-circle">
 
 
 
