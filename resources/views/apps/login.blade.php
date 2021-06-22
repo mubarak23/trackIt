@@ -7,6 +7,11 @@
             <form class="form-signin"  method="POST"
              action="{{ route('login') }}" >
             @csrf
+       @if(session('status'))
+            <div class="bg-red-500 p-4 rounded-lg mb-6 text-white text-center ">
+                    {{ session('status') }}
+            </div>
+         @endif
       <div class="form-label-group pb-3">
         <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email address" required autofocus>
       </div>

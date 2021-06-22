@@ -44,6 +44,11 @@
         <div class="form-group">
             <form  method="POST" enctype='multipart/form-data' action="{{ route('addProject') }}">
                 @csrf
+                @if(session('status'))
+            <div class="bg-red-500 p-4 rounded-lg mb-6 text-white text-center ">
+                    {{ session('status') }}
+            </div>
+         @endif
                 <div>
                     <input type="text" name="title" placeholder="Project Title"
                       class="form-control @error('title') border-red-500 @enderror"

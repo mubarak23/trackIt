@@ -6,6 +6,11 @@
         <div class="card shadow-sm mb-4 p-3">
             <form class="form-signin" method="POST" enctype='multipart/form-data' action="{{ route('auth_admin') }}">
             @csrf
+            @if(session('status'))
+            <div class="bg-red-500 p-4 rounded-lg mb-6 text-white text-center ">
+                    {{ session('status') }}
+            </div>
+         @endif
             <div class="form-label-group pb-3">
             <input type="text" id="first_name" name="first_name"
             class="form-control @error('first_name') border-red-500 @enderror" value="{{ old('first_name')}}"
