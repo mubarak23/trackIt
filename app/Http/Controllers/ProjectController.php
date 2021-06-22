@@ -13,9 +13,9 @@ class ProjectController extends Controller
 
     public function index(){
         //fetch all categories
-        //$categories = Category::all();
-        //['categories' => $categories]
-        return view('apps.addproject');
+        $categories = Category::all();
+
+        return view('apps.addproject', ['categories' => $categories]);
     }
 
     public function store_project(Request $request){

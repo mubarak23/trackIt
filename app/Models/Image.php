@@ -15,9 +15,10 @@ class Image extends Model
 
     // a image  belong to a project
     public function project(){
-        return $this->belongsTo('App\Model\Project', 'project_id');
+        return $this->belongsTo(Project::class, 'project_id');
     }
 
+    //Project::class, 'category_id'
 
 
 }

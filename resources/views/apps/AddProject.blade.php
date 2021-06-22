@@ -87,11 +87,13 @@
                     <label>Category</label>
                     <select class="form-control @error('category_id')
                       border-red-500 @enderror" value="{{ old('category_id')}}" name="category_id" id="exampleFormControlSelect2">
-                    <option value="1">Community</option>
-                    <option value="2">Budget</option>
-                    <option value="3">Health</option>
-                    <option value="4">Education</option>
-                    <option value="5">Fetch from Categories table </option>
+                     @if($categories)
+                     @foreach ($categories as  $category)
+                      <option value="{{$category->id}}">{{$category->name}}</option>
+                      @endforeach
+                    @else
+                        <option value="5">Fetch from Categories table </option>
+                         @endif
                     </select>
                     @error('category_id')
                     <div class="text-red-500 mt-2 text-sm ">

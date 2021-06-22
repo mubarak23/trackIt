@@ -56,19 +56,19 @@ Start a conversation around something important in your community.</p>
         @foreach ($user_projects as  $project)
    <div class="card-body">
     <div class="media">
-        <img src="{{url($project->images[0]['image_url'])}}" alt="img" width="70px" height="70px" class="rounded-circle mr-3">
+        <img src="{{ url(auth()->user()->user_pic) }}" alt="img" width="70px" height="70px" class="rounded-circle mr-3">
         <div class="media-body">
             <h5>{{$project->posted_by}}</h5>
             <p class="card-text text-justify"> <span class="h6">{{$project->title}}</p>
             <p class="card-text text-justify">{{$project->description}}</p>
             <div class="row no-gutters mb-3">
                 <div class="col-6 p-1 text-center">
-                        <img src="{{url('/img/adventure-alps-clouds-2259810.jpg')}}" alt="" class="img-fluid mb-2">
+                        <img src="{{url($project->images[0]['image_url'])}}" alt="" class="img-fluid mb-2">
                         <img src="{{url('/img/aerial-view-architectural-design-buildings-2228123.jpg')}}" alt="" class="img-fluid">
                 </div>
                 <div class="col-6 p-1 text-center">
 
-                        <img src="{{url('/img/celebration-colored-smoke-dark-2297472.jpg')}}" alt="" class="img-fluid mb-2">
+                        <img src="{{url($project->images[0]['image_url'])}}" alt="" class="img-fluid mb-2">
                         <img src="{{url('/img/bodybuilding-exercise-fitness-2294361.jpg')}}" alt=""class="img-fluid">
                 </div>
             </div>
