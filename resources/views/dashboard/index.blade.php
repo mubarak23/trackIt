@@ -12,7 +12,22 @@
                         <th>Project Title</th>
                         <th>Posted By</th>
                         <th>Category</th>
-                        <th>Action</th>
+                        <th>Take Actions </th>
+                    </tr>
+                    <tr>
+                        @if($projects->count())
+                        @foreach ($projects as  $project)
+                        <td>{{$project->id}}</td>
+                        <td>{{$project->title}}</td>
+                        <td>{{$project->posted_by}}</td>
+                        <td>{{$project->category->name}}</td>
+                        <td><button class="btn btn-primary">Edit</button>  <button class="btn btn-primary">Add image</button></td>
+
+                        @endforeach
+                        {{ $projects->links() }}
+                         @else
+                         <p>There are no Projects</p>
+                         @endif
                     </tr>
                 </thead>
             </table>

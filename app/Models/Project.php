@@ -32,7 +32,7 @@ class Project extends Model
 
     // a project  belong to a category
     public function category(){
-        return $this->belongsTo('App\Model\Category');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
 
