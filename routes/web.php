@@ -6,6 +6,7 @@ use App\Http\controllers\auth\LoginController;
 use App\Http\controllers\auth\LogoutController;
 use App\Http\controllers\DashboardController;
 use App\Http\controllers\ProjectController;
+use App\Http\controllers\AdminController;
 //ProjectController
 
 
@@ -45,6 +46,12 @@ Route::get('/user/dashboard', [DashboardController::class, 'index'])->name('dash
 
 Route::get('/project/add', [ProjectController::class, 'index'])->name('project')->middleware('auth');
 Route::post('/project', [ProjectController::class, 'store_project'])->name('addProject')->middleware('auth');
+
+
+Route::get('/admin', [AdminController::class, 'index'])->name("admin");
+
+// register_admin
+Route::post('/auth/admin', [RegisterController::class, 'register_admin'])->name("auth_admin");
 
 Route::get('/profile', function () {
     return view('apps.profile');
