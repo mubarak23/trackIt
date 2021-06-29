@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Event\ProjectAction;
 use App\Models\Category;
 use App\Models\Project;
 use App\Models\Image;
@@ -48,6 +49,7 @@ class ProjectController extends Controller
         if(!$project && $store){
             return back()->with('status', 'Faild to create project at this time');
         }
+        event(new ProjectAction($project, self::CREATED));
         return redirect()->route('dashboard');
 
     }

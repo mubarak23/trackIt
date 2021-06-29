@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\auth;
 
+use Illuminate\Auth\Events\Registered;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use JD\Cloudder\Facades\Cloudder;
@@ -45,6 +46,7 @@ class RegisterController extends Controller
         if(!$new_user_account){
             return back()->with('status', 'Unabled to create a New Account at this time');
         }
+        event(new ProjectAction($project, self::CREATED));
         auth()->attempt($request->only('email', 'password'));
         return redirect()->route('dashboard');
     }
@@ -74,6 +76,8 @@ class RegisterController extends Controller
         if(!$new_user_account){
             return back()->with('status', 'Unabled to create a New Account at this time');
         }
+         // Registered
+        event(new Registered($new_user_account, self::CREATED));
         auth()->attempt($request->only('email', 'password'));
         return redirect()->route('dashboard');
     }

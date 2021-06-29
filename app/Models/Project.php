@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
