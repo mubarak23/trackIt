@@ -44,11 +44,8 @@
                     Time Font Icon Here and Date it was posted
                 </div>
             </div>
-             <p class="card-text text-justify"> <span class="h6">Project Description</p>
-            <p class="card-text text-justify">Aenean lacinia bibendum nulla sed consectetur.
-                 Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac
-                 consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in,
-                 egestas eget quam. Vestibulum id ligula porta felis euismod semper. </p>
+             <p class="card-text text-justify"> <span class="h6">{{$project_details->title}}</p>
+            <p class="card-text text-justify">{{$project_details->description}}</p>
             <div class="row no-gutters mb-3">
                 <div class="col-6 p-1 text-center">
                         <img src="img/adventure-alps-clouds-2259810.jpg" alt="" class="img-fluid mb-2">

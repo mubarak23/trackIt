@@ -49,7 +49,7 @@ class ProjectController extends Controller
         if(!$project && $store){
             return back()->with('status', 'Faild to create project at this time');
         }
-        event(new ProjectAction($project, self::CREATED));
+        //event(new ProjectAction($project, self::CREATED));
         return redirect()->route('dashboard');
 
     }

@@ -37,4 +37,21 @@ class DashboardController extends Controller
 
         return view('apps.index', ['user_projects'=> $user_projects, 'other_projects' => $other_projects]);
     }
+
+
+   public function single_project($proiject_id){
+       //user_id
+       $project_details = Project::where('id', $proiject_id)->where('user_id', auth()->user()->id)->get();
+       if(!$project_details){
+           return back()->with('status', 'Project with the provided id does not exist');
+       }
+       return view('apps.project', ['project_details'=> $project_details]);
+   }
+
+
+
+
+
+
+
 }
