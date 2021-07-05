@@ -15,6 +15,12 @@ class Report extends Model
         'report',
     ];
 
+    // report has many image
+    public function images(){
+        return $this->hasMany(ReportImage::class, 'project_id');
+
+    }
+
 
     public function getCreatedatAttribute($date){
         return Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d');

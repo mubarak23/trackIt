@@ -52,8 +52,8 @@ class Project extends Model
     }
 
     public function getUpdatedAtAttribute($date)
-{
+    {
     return Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d');
-}
+    }
 
 }
