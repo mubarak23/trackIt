@@ -19,6 +19,17 @@ class ProjectController extends Controller
         return view('apps.addproject', ['categories' => $categories]);
     }
 
+     public function single_project($proiject_id){
+       //user_id
+       $project_details = Project::where('id', $proiject_id)->where('user_id', auth()->user()->id)->first();
+       if(!$project_details){
+           return back()->with('status', 'Project with the provided id does not exist');
+       }
+       //return $project_details;
+       return view('apps.project', ['project_details'=> $project_details]);
+   }
+
+
     public function store_project(Request $request){
             $this->validate($request, [
             'title' => 'required|max:255',

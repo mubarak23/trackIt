@@ -59,7 +59,7 @@ Start a conversation around something important in your community.</p>
         <img src="{{ url(auth()->user()->user_pic) }}" alt="img" width="70px" height="70px" class="rounded-circle mr-3">
         <div class="media-body">
             <h5>{{$project->posted_by}}</h5>
-            <p class="card-text text-justify"> <span class="h6">{{$project->title}}</p>
+            <p class="card-text text-justify"><a href="/project/{{$project->id}}"><span class="h6">{{$project->title}}</span></a></p>
             <p class="card-text text-justify">{{$project->description}}</p>
             <div class="row no-gutters mb-3">
                 <div class="col-6 p-1 text-center">
@@ -97,34 +97,6 @@ Start a conversation around something important in your community.</p>
      @endif
  <hr>
 
-<div class="card-body">
-    <div class="media">
-            <img src="img/avatar-fat.jpg" alt="img" width="55px" height="55px" class="rounded-circle mr-3">
-        <div class="media-body">
-                <h5>Jacob Thornton</h5>
-                <p class="text-justify">Donec id elit non mi porta gravida at eget metus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                    Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-        <small>14 min</small>
-    </div>
-</div>
-<hr>
-
-<div class="card-body">
-
-    <div class="media">
-
-            <img src="img/avatar-mdo.png" alt="img" width="55px" height="55px" class="rounded-circle mr-3">
-            <div class="media-body">
-                <h5>Mark Otto</h5>
-                <p class="text-justify">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-             <a href="img/mid5.jpg" data-lightbox="id"><img src="img/mid5.jpg" alt="" class="img-fluid shadow-sm img-thumbnail">   </a>
-
-            </div>
-
-            <small class="text-muted">10 min</small>
-    </div>
-</div>
  </div>
  </div>
 </div>

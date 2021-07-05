@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Carbon;
 
 class Project extends Model
 {
@@ -43,5 +44,16 @@ class Project extends Model
         return $this->hasMany(Image::class, 'project_id');
         //return $this->hasMany('App\Model\Image', 'project_id');
     }
+
+
+
+    public function getCreatedatAttribute($date){
+        return Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d');
+    }
+
+    public function getUpdatedAtAttribute($date)
+{
+    return Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d');
+}
 
 }

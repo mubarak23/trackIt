@@ -45,6 +45,7 @@ Route::post('/auth/logout', [LogoutController::class, 'store'])->name('logout');
 Route::get('/user/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
 Route::get('/project/add', [ProjectController::class, 'index'])->name('project')->middleware('auth');
+Route::get('/project/{project_id}', [ProjectController::class, 'single_project'])->name('single_project')->middleware('auth');
 Route::post('/project', [ProjectController::class, 'store_project'])->name('addProject')->middleware('auth');
 
 

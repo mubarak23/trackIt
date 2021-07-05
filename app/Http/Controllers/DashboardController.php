@@ -28,7 +28,7 @@ class DashboardController extends Controller
 
     public function index(){
         //fetch user submitted project
-        $user_projects = Project::where('user_id', auth()->user()->id)->paginate(1);
+        $user_projects = Project::where('user_id', auth()->user()->id)->paginate(3);
         //$delete = Project::find(3)->delete();
         // fetch the last 10 project submitted on the platform
 
@@ -39,14 +39,6 @@ class DashboardController extends Controller
     }
 
 
-   public function single_project($proiject_id){
-       //user_id
-       $project_details = Project::where('id', $proiject_id)->where('user_id', auth()->user()->id)->get();
-       if(!$project_details){
-           return back()->with('status', 'Project with the provided id does not exist');
-       }
-       return view('apps.project', ['project_details'=> $project_details]);
-   }
 
 
 
