@@ -36,3 +36,37 @@
     </div>
 </div>
 @endsection
+
+
+
+<form method="POST" enctype='multipart/form-data' action="{{ route('addProject') }}" >
+            @csrf
+                @if(session('status'))
+            <div class="bg-red-500 p-4 rounded-lg mb-6 text-white text-center ">
+                    {{ session('status') }}
+            </div>
+            @endif
+            <div>
+                <div class="form-group">
+                    <label>Project Report</label>
+                    <textarea cols="10" rows="5" name="report" placeholder="Submit Project Report "
+                     class="form-control @error('report')
+                      border-red-500 @enderror" value="{{ old('report')}}"></textarea>
+                      @error('report')
+                    <div class="text-red-500 mt-2 text-sm ">
+                     {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Images</label>
+                    <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+                <br>
+                <div class="form-group">
+                <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Submit Report</button>
+                </div>
+            </div>
+        </form>

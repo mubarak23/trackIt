@@ -11,8 +11,8 @@ use App\Models\Image;
 class ReportController extends Controller
 {
     //
-
-    public function index($project_id){
+    public function report($project_id){
+        //return $project_id;
         $project = Project::where('id', $project_id)->first();
         //return $project;
         $other_project = Project::all();
