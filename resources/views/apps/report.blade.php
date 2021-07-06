@@ -51,7 +51,7 @@
                 </div>
             </div>
             <hr>
-            <form>
+    <form method="POST" enctype='multipart/form-data' action="{{ route('submit_report') }}" >
     @csrf
      @if(session('status'))
         <div class="bg-red-500 p-4 rounded-lg mb-6 text-white text-center ">
@@ -74,12 +74,12 @@
           <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
       </div>
       <div class="form-group">
+         <input type="hidden" name="project_id" value="{{$project_details->id}}" class="form-control-file" id="exampleFormControlFile1">
+      </div>
+      <div class="form-group">
            <button type="submit" class="btn btn-primary">Submit Report</button>
       </div>
-</form>
-
-
-
+        </form>
         </div>
     </div>
    </div>

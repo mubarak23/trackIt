@@ -54,7 +54,7 @@ Route::post('/project', [ProjectController::class, 'store_project'])->name('addP
 //Route::get('/report/{$project_id}', [ReportController::class, 'index']);
 Route::get('/report/{project_id}', [ReportController::class, 'report']);
 
-Route::post('/submit_report', [ReportController::class, 'store_report'])->name('submit_report')->middleware('auth');
+Route::post('/submit_report', [ReportController::class, 'submit_report'])->name('submit_report')->middleware('auth');
 
 
 Route::get('/admin', [AdminController::class, 'index'])->name("admin");

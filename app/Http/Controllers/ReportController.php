@@ -16,6 +16,7 @@ class ReportController extends Controller
         $project = Project::where('id', $project_id)->first();
         //return $project;
         $other_project = Project::all();
+        //return $other_project;
         return view('apps.report', ['project_details' => $project, 'other_projects' => $other_project]);
     }
 
@@ -27,6 +28,7 @@ class ReportController extends Controller
         ]);
         $data = $request->all();
         // save the image in cloundinary
+        return $data;
         $response = cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
         // collect the url and add it to create report data
         $data['user_id'] = auth()->user()->id;
