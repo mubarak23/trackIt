@@ -45,6 +45,11 @@ class Project extends Model
         //return $this->hasMany('App\Model\Image', 'project_id');
     }
 
+    // a project has many image
+    public function reports(){
+        return $this->hasMany(Report::class, 'project_id');
+    }
+
 
 
     public function getCreatedatAttribute($date){

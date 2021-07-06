@@ -7,7 +7,8 @@ use App\Http\controllers\auth\LogoutController;
 use App\Http\controllers\DashboardController;
 use App\Http\controllers\ProjectController;
 use App\Http\controllers\AdminController;
-//ProjectController
+use App\Http\controllers\ReportController;
+//ProjectController ReportController
 
 
 /*
@@ -47,6 +48,10 @@ Route::get('/user/dashboard', [DashboardController::class, 'index'])->name('dash
 Route::get('/project/add', [ProjectController::class, 'index'])->name('project')->middleware('auth');
 Route::get('/project/{project_id}', [ProjectController::class, 'single_project'])->name('single_project')->middleware('auth');
 Route::post('/project', [ProjectController::class, 'store_project'])->name('addProject')->middleware('auth');
+
+// report
+Route::post('/report/{$project_id}', [ReportController::class, 'index'])->name('report')->middleware('auth');
+Route::post('/report', [ReportController::class, 'store_report'])->name('submit_report')->middleware('auth');
 
 
 Route::get('/admin', [AdminController::class, 'index'])->name("admin");
