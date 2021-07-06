@@ -21,7 +21,7 @@
                 <br>
                 <p class="card-text text-justify"> <span class="h6">Date: {{$project_details->created_at}}</p>
                 <br>
-                <div class="btn btn-success">Submit a Report</div>
+                <div class="btn btn-success"><a href="/report/{{$project_details->id}}">Submit a Report</a></div>
             </div>
         </div>
         </div>

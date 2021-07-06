@@ -50,7 +50,7 @@ Route::get('/project/{project_id}', [ProjectController::class, 'single_project']
 Route::post('/project', [ProjectController::class, 'store_project'])->name('addProject')->middleware('auth');
 
 // report
-Route::post('/report/{$project_id}', [ReportController::class, 'index'])->name('report')->middleware('auth');
+Route::get('/report/{$project_id}', [ReportController::class, 'index'])->name('report')->middleware('auth');
 Route::post('/report', [ReportController::class, 'store_report'])->name('submit_report')->middleware('auth');
 
 

@@ -20,8 +20,6 @@
                 <p class="card-text text-justify"> <span class="h6">Tags: Fical Year, Budget, Constituency Project</p>
                 <br>
                 <p class="card-text text-justify"> <span class="h6">Date: {{$project_details->created_at}}</p>
-                <br>
-                <div class="btn btn-success">Submit a Report</div>
             </div>
         </div>
         </div>

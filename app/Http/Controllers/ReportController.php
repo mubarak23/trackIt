@@ -14,6 +14,7 @@ class ReportController extends Controller
 
     public function index($project_id){
         $project = Project::where('id', $project_id)->first();
+        //return $project;
         $other_project = Project::all();
         return view('apps.report', ['project_details' => $project, 'other_projects' => $other_project]);
     }
