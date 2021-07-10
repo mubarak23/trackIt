@@ -73,16 +73,12 @@
                     <img src={{url('img/avatar-dhg.png')}} alt="img" width="45px" height="45px" class="rounded-circle mr-2">
                     <div class="media-body">
                             <p class="card-text text-justify">{{$reports->report}}</p>
-                               <div class="row no-gutters mb-3">
-                            @foreach ($reports->images as  $image)
-                                <div class="col-6 p-1 text-center">
-                        <img src="{{url($image->images[0]['image_url'])}}" alt="" class="img-fluid mb-2">
+                            <div class="row no-gutters mb-3">
+                                 @foreach ($reports->images as  $image)
+                       <div class="col-6 p-1 text-center">
+                        <img src="{{url($image->image_url)}}" alt="" class="img-fluid mb-2">
+                        </div>
                         @endforeach
-                        </div>
-                <div class="col-6 p-1 text-center">
-                        <img src="img/celebration-colored-smoke-dark-2297472.jpg" alt="" class="img-fluid mb-2">
-                        <img src="img/bodybuilding-exercise-fitness-2294361.jpg" alt=""class="img-fluid">
-                        </div>
             </div>
             </div>
             </div>
