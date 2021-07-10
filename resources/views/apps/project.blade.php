@@ -85,28 +85,10 @@
             @endforeach
 
      @else
-      <p>There are no Project Report</p>
-     @endif
+      <p>There are no Project Report at the moment</p>
 
-            <div class="media mb-3">
-                    <img src="img/avatar-dhg.png" alt="img" width="45px" height="45px" class="rounded-circle mr-2">
-                    <div class="media-body">
-                            <p class="card-text text-justify">Jacon Thornton: Donec id elit non mi porta gravida at eget metus. Vivamus
-                                sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor
-                                fringilla. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed posuere consectetur
-                                est at lobortis.</p>
-                               <div class="row no-gutters mb-3">
-                <div class="col-6 p-1 text-center">
-                        <img src="img/adventure-alps-clouds-2259810.jpg" alt="" class="img-fluid mb-2">
-                        <img src="img/aerial-view-architectural-design-buildings-2228123.jpg" alt="" class="img-fluid">
-                </div>
-                <div class="col-6 p-1 text-center">
-                        <img src="img/celebration-colored-smoke-dark-2297472.jpg" alt="" class="img-fluid mb-2">
-                        <img src="img/bodybuilding-exercise-fitness-2294361.jpg" alt=""class="img-fluid">
-                        </div>
-            </div>
-            </div>
-            </div>
+      <div class="btn btn-success"><a href="/report/{{$project_details->id}}">Submit a Report Here</a></div>
+     @endif
         </div>
     </div>
    </div>
@@ -121,38 +103,20 @@
         ftch by the tag of single project details)</p>
             </div>
         </div>
+         @if($other_projects->count())
+        @foreach ($other_projects as  $other_project)
         <div class="card shadow-sm mb-4" >
             <div class="card-body">
                 <h6 class="card-title">Prroject Details</h6>
-                <p class="card-text text-justify"> <span class="h6">Makarfi Water Project Title</p>
+                <p class="card-text text-justify"> <span class="h6">{{$other_project->title}}</p>
                 <br>
-                <p class="card-text text-justify"> <span class="h6">Date: 31-03-2019</p>
+                <p class="card-text text-justify"> <span class="h6">Date Posted: {{ $other_project->created_at}}</p>
             </div>
         </div>
-        <div class="card shadow-sm mb-4" >
-            <div class="card-body">
-                <h6 class="card-title">Prroject Details</h6>
-                <p class="card-text text-justify"> <span class="h6">Makarfi Water Project Title</p>
-                <br>
-                <p class="card-text text-justify"> <span class="h6">Date: 31-03-2019</p>
-            </div>
-        </div>
-        <div class="card shadow-sm mb-4" >
-            <div class="card-body">
-                <h6 class="card-title">Prroject Details</h6>
-                <p class="card-text text-justify"> <span class="h6">Makarfi Water Project Title</p>
-                <br>
-                <p class="card-text text-justify"> <span class="h6">Date: 31-03-2019</p>
-            </div>
-        </div>
-        <div class="card shadow-sm mb-4" >
-            <div class="card-body">
-                <h6 class="card-title">Prroject Details</h6>
-                <p class="card-text text-justify"> <span class="h6">Makarfi Water Project Title</p>
-                <br>
-                <p class="card-text text-justify"> <span class="h6">Date: 31-03-2019</p>
-            </div>
-        </div>
+        @endforeach
+        @else
+        <p>Other Related Projects</p>
+        @endif
         <div class="card shadow-sm mb-4" >
             <div class="card-body">
                 <h6 class="card-title">Prroject Details</h6>

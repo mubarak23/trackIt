@@ -45,7 +45,7 @@
                     </a></li>
                 @endauth
                 @guest
-                <li class="nav-item"><a href="/auth/login" class="nav-link" data-toggle="modal">Register</a></li>
+                <li class="nav-item"><a href="/register" class="nav-link" data-toggle="modal">Register</a></li>
                 <li class="nav-item"><a href="{{ route('auth') }}" class="nav-link">Login</a></li>
                 @endguest
             </ul>
