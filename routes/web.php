@@ -52,7 +52,7 @@ Route::post('/project', [ProjectController::class, 'store_project'])->name('addP
 
 // report
 //Route::get('/report/{$project_id}', [ReportController::class, 'index']);
-Route::get('/report/{project_id}', [ReportController::class, 'report']);
+Route::get('/report/{project_id}', [ReportController::class, 'report'])->middleware('auth');
 
 Route::post('/submit_report', [ReportController::class, 'submit_report'])->name('submit_report')->middleware('auth');
 

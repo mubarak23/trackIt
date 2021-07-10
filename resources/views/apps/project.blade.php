@@ -67,18 +67,18 @@
             <hr>
             <br>
             <h6 class="card-title"> Project Report</h6>
+            @if($project_details->reports->count())
+        @foreach ($project_details->reports as  $reports)
             <div class="media mb-3">
-                    <img src="img/avatar-dhg.png" alt="img" width="45px" height="45px" class="rounded-circle mr-2">
+                    <img src={{url('img/avatar-dhg.png')}} alt="img" width="45px" height="45px" class="rounded-circle mr-2">
                     <div class="media-body">
-                            <p class="card-text text-justify">Jacon Thornton: Donec id elit non mi porta gravida at eget metus. Vivamus
-                                sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor
-                                fringilla. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed posuere consectetur
-                                est at lobortis.</p>
+                            <p class="card-text text-justify">{{$reports->report}}</p>
                                <div class="row no-gutters mb-3">
-                <div class="col-6 p-1 text-center">
-                        <img src="img/adventure-alps-clouds-2259810.jpg" alt="" class="img-fluid mb-2">
-                        <img src="img/aerial-view-architectural-design-buildings-2228123.jpg" alt="" class="img-fluid">
-                </div>
+                            @foreach ($reports->images as  $image)
+                                <div class="col-6 p-1 text-center">
+                        <img src="{{url($image->images[0]['image_url'])}}" alt="" class="img-fluid mb-2">
+                        @endforeach
+                        </div>
                 <div class="col-6 p-1 text-center">
                         <img src="img/celebration-colored-smoke-dark-2297472.jpg" alt="" class="img-fluid mb-2">
                         <img src="img/bodybuilding-exercise-fitness-2294361.jpg" alt=""class="img-fluid">
@@ -86,6 +86,12 @@
             </div>
             </div>
             </div>
+            @endforeach
+
+     @else
+      <p>There are no Project Report</p>
+     @endif
+
             <div class="media mb-3">
                     <img src="img/avatar-dhg.png" alt="img" width="45px" height="45px" class="rounded-circle mr-2">
                     <div class="media-body">

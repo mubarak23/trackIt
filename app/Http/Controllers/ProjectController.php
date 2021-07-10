@@ -22,6 +22,7 @@ class ProjectController extends Controller
      public function single_project($proiject_id){
        //user_id
        $project_details = Project::where('id', $proiject_id)->where('user_id', auth()->user()->id)->first();
+       //return $project_details->reports();
        if(!$project_details){
            return back()->with('status', 'Project with the provided id does not exist');
        }

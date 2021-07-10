@@ -28,13 +28,13 @@ class ReportController extends Controller
         ]);
         $data = $request->all();
         // save the image in cloundinary
-        return $data;
-        $response = cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
+        $image_response = cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
         // collect the url and add it to create report data
         $data['user_id'] = auth()->user()->id;
         $data['posted_by'] = auth()->user()->first_name;
         $store_report = $this->save_report($data);
         $data['report_id'] = $store_report->id;
+        $data["image_url"] = $image_response;
         $store_report_image = $this->report_image($data);
         if(!$store_report && $store_report_image){
              return back()->with('status', 'Faild to create project at this time');

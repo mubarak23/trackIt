@@ -11,6 +11,7 @@ class ReportImage extends Model
 
      protected $fillable = [
         'report_id',
+        'project_id',
         'image_url',
     ];
 

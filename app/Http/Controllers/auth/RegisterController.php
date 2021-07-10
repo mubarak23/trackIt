@@ -71,13 +71,13 @@ class RegisterController extends Controller
         $data['user_pic'] = $response;
         $data['password'] = Hash::make($data['password']);
         //fetch all roles and loop through and pick only role with name as user
-        $data['user_role_id'] = 1;
+        $data['user_role_id'] = 2;
         $new_user_account = $this->store_action($data);
         if(!$new_user_account){
             return back()->with('status', 'Unabled to create a New Account at this time');
         }
          // Registered
-        event(new Registered($new_user_account, self::CREATED));
+        //event(new Registered($new_user_account, self::CREATED));
         auth()->attempt($request->only('email', 'password'));
         return redirect()->route('dashboard');
     }
