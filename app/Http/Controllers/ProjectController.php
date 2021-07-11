@@ -21,7 +21,7 @@ class ProjectController extends Controller
 
      public function single_project($proiject_id){
        //user_id
-       $project_details = Project::where('id', $proiject_id)->where('user_id', auth()->user()->id)->first();
+       $project_details = Project::where('id', $proiject_id)->first();
        $other_projects = Project::all(); //where('user_id', !auth()->user()->id)->get();
        //return $other_projects;
        //return $project_details->reports();

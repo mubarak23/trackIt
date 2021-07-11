@@ -51,13 +51,13 @@ Route::post('/auth/logout', [LogoutController::class, 'store'])->name('logout');
 Route::get('/user/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
 Route::get('/project/add', [ProjectController::class, 'index'])->name('project')->middleware('auth');
-Route::get('/project/{project_id}', [ProjectController::class, 'single_project'])->name('single_project')->middleware('auth');
+Route::get('/project/{project_id}', [ProjectController::class, 'single_project'])->name('single_project');
 
 Route::post('/project', [ProjectController::class, 'store_project'])->name('addProject')->middleware('auth');
 
 // report
 //Route::get('/report/{$project_id}', [ReportController::class, 'index']);
-Route::get('/report/{project_id}', [ReportController::class, 'report'])->middleware('auth');
+Route::get('/report/{project_id}', [ReportController::class, 'report']);
 
 Route::post('/submit_report', [ReportController::class, 'submit_report'])->name('submit_report')->middleware('auth');
 

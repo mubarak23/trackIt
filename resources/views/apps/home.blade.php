@@ -40,51 +40,31 @@
     </div>
 </div>
 <br>
-<hr>
+
 <div class="row">
+    @if($projects->count())
+        @foreach ($projects as  $project)
     <div class="col-12 col-lg-4 col-md-4 col-sm-12 mb-3">
         <div class="item-1">
            <a href="#" data-lightbox="id">
-            <img src={{URL::asset('img/mid1.jpg')}}
-            alt="" class="img-fluid" style="width:455px; height: 255px;"></a>
-            <p>Primary Health Care Building Project Chikun</p>
-            <div class="btn btn-primary">View Full Details</div>
+            <img src="{{url($project->images[0]['image_url'])}}"
+            alt="" class="img-fluid" style="width:400px; height: 200px;"></a>
+            <p>{{$project->title}}</p>
+            <div class="btn btn-primary"> <a href="/project/{{$project->id}}">View Full Details</a></div>
 
         </div>
     </div>
-    <div class="col-12 col-lg-4 col-md-4 col-sm-12 mb-3">
-        <div class="item-1">
-           <a href="#" data-lightbox="id">
-            <img src={{URL::asset('img/mid1.jpg')}} alt="" class="img-fluid" style="width:455px; height: 255px;"></a>
-            <p>Kaura Primary School Renovation</p>
-            <div class="btn btn-primary">View Full Details</div>
-
-        </div>
-    </div>
-    <div class="col-12 col-lg-4 col-md-4 col-sm-12 mb-3">
-        <div class="item-1">
-           <a href="#" data-lightbox="id">
-            <img src={{URL::asset('img/mid1.jpg')}}  alt="" class="img-fluid" style="width:455px; height: 255px;"></a>
-            <p>Makarfi Water Project</p>
-            <div class="btn btn-primary">View Full Details</div>
-            <br>
-        </div>
-    </div>
+     @endforeach
+        {{ $projects->links() }}
+     @else
+      <p>There are no Projects</p>
+     @endif
 
     <div class="col-12 col-lg-4 col-md-4 col-sm-12 mb-3">
         <div class="item-1">
            <a href="#" data-lightbox="id">
             <img src={{URL::asset('img/mid1.jpg')}}
-            alt="" class="img-fluid" style="width:455px; height: 255px;"></a>
-            <p>Primary Health Care Building Project Chikun</p>
-            <div class="btn btn-primary">View Full Details</div>
-        </div>
-    </div>
-    <div class="col-12 col-lg-4 col-md-4 col-sm-12 mb-3">
-        <div class="item-1">
-           <a href="#" data-lightbox="id">
-            <img src={{URL::asset('img/mid1.jpg')}}
-            alt="" class="img-fluid" style="width:455px; height: 255px;"></a>
+            alt="" class="img-fluid" style="width:420px; height: 200px;"></a>
             <p>Primary Health Care Building Project Chikun</p>
             <div class="btn btn-primary">View Full Details</div>
         </div>
