@@ -21,7 +21,13 @@
                 <br>
                 <p class="card-text text-justify"> <span class="h6">Date: {{$project_details->created_at}}</p>
                 <br>
-                <div class="btn btn-success"><a href="/report/{{$project_details->id}}">Submit a Report</a></div>
+                @guest
+         <div class="btn btn-success"><a href="/auth/login">Login and submit a report</a></div>
+       @endguest
+       @auth
+           <div class="btn btn-success"><a href="/report/{{$project_details->id}}">Submit a Report Here</a></div>
+       @endauth
+
             </div>
         </div>
         </div>
@@ -86,8 +92,13 @@
 
      @else
       <p>There are no Project Report at the moment</p>
+       @guest
+         <div class="btn btn-success"><a href="/auth/login">Login and submit a report</a></div>
+       @endguest
+       @auth
+           <div class="btn btn-success"><a href="/report/{{$project_details->id}}">Submit a Report Here</a></div>
+       @endauth
 
-      <div class="btn btn-success"><a href="/report/{{$project_details->id}}">Submit a Report Here</a></div>
      @endif
         </div>
     </div>

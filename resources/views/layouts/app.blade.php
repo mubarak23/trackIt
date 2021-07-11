@@ -31,7 +31,7 @@
 
         <div class="collapse navbar-collapse" id="responsive">
             <ul class="navbar-nav mr-auto text-capitalize">
-                <li class="nav-item"><a href="index.html" class="nav-link active">home</a></li>
+                <li class="nav-item"><a href="/" class="nav-link active">home</a></li>
                 <li class="nav-item"><a href="#modalview" class="nav-link" data-toggle="modal">Communnity</a></li>
                 <li class="nav-item"><a href="notification.html" class="nav-link">Report</a></li>
                 @auth

@@ -28,7 +28,7 @@ class DashboardController extends Controller
 
     public function index(){
         //fetch user submitted project
-        $user_projects = Project::where('user_id', auth()->user()->id)->paginate(3);
+        $user_projects = Project::paginate(6);
         //$delete = Project::find(3)->delete();
         // fetch the last 10 project submitted on the platform
 
