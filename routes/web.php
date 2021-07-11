@@ -8,7 +8,8 @@ use App\Http\controllers\DashboardController;
 use App\Http\controllers\ProjectController;
 use App\Http\controllers\AdminController;
 use App\Http\controllers\ReportController;
-//ProjectController ReportController
+use App\Http\controllers\HomeController;
+//ProjectController ReportController HomeController
 
 
 /*
@@ -22,14 +23,18 @@ use App\Http\controllers\ReportController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+ //   return view('welcome');
+//});
 
 
 Route::get('/home', function () {
-    return view('apps.index');
+    return view('apps.home');
 });
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
 
 // register
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
@@ -73,6 +78,10 @@ Route::get('/profile', function () {
 
 Route::get('/project', function () {
     return view('apps.project');
+});
+
+Route::get('/profile', function () {
+    return view('apps.profile');
 });
 
 Route::get('/add', function () {
